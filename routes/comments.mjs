@@ -5,7 +5,7 @@ let comments = [...commentsFromFile];
 
 const commentsRouter = Router();
 
-commentsRouter.get('/:id/comments', (req, res) => {
+commentsRouter.get('/:id', (req, res) => {
   const assignmentId = +req.params.id;
 
   const assignmentComments = comments.filter((comment) => {
@@ -17,7 +17,7 @@ commentsRouter.get('/:id/comments', (req, res) => {
   });
 });
 
-commentsRouter.post('/:id/comments', (req, res) => {
+commentsRouter.post('/:id', (req, res) => {
   const assignmentId = +req.params.id;
   const newComment = req.body;
   const commentId = comments[comments.length - 1].id + 1;
@@ -33,7 +33,7 @@ commentsRouter.post('/:id/comments', (req, res) => {
   });
 });
 
-commentsRouter.delete('/:id/comments', (req, res) => {
+commentsRouter.delete('/:id', (req, res) => {
   const assignmentId = +req.params.id;
 
   const hasFound = comments.find(
