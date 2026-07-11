@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { assignments as assignmentsFromFile } from '../data/assignments.js';
 
+let assignments = [...assignmentsFromFile];
+
 const assignmentsRouter = Router();
 
 assignmentsRouter.get('/', (req, res) => {
